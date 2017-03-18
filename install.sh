@@ -124,11 +124,20 @@ echo_info "Installing vimfiles"
 ensure_clone https://github.com/ErnWong/vimfiles-wsl ~/.vim
 
 echo_info "Setting up tmux"
+
 echo_info "Linking ~/.tmux.conf"
 ln -nsf ~/.dotfiles/.tmux.conf ~/.tmux.conf
+
 echo_info "Linking ~/.tmux"
 ln -nsf ~/.dotfiles/.tmux ~/.tmux
+
 ensure_clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+echo_info "Installing tpm plugins"
+~/.tmux/plugins/tpm/bin/install_plugins
+
+echo_info "Updating tpm plugins"
+~/.tmux/plugins/tpm/bin/update_plugins all
 
 echo_info "Installing dircolors-solarized"
 ensure_clone https://github.com/seebi/dircolors-solarized ~/customisations-shell/dircolors-solarized
