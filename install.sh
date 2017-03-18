@@ -123,7 +123,11 @@ popd
 echo_info "Installing vimfiles"
 ensure_clone https://github.com/ErnWong/vimfiles-wsl ~/.vim
 
-echo_info "Installing tmux plugin manager"
+echo_info "Setting up tmux"
+echo_info "Linking ~/.tmux.conf"
+ln -nsf ~/.dotfiles/.tmux.conf ~/.tmux.conf
+echo_info "Linking ~/.tmux"
+ln -nsf ~/.dotfiles/.tmux ~/.tmux
 ensure_clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo_info "Installing dircolors-solarized"
