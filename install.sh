@@ -52,6 +52,7 @@ install_pkg python-software-properties
 install_pkg software-properties-common
 install_pkg git
 install_pkg build-essential
+install_pkg libcurl4-gnutls-dev
 install_pkg libav-tools
 install_pkg libncurses-dev
 install_pkg libssl-dev
@@ -112,8 +113,20 @@ gem install bundler
 echo_info "Installing Jekyll"
 gem install jekyll
 
+echo_info "Installing Clib"
+ensure_clone https://github.com/clibs/clib.git /tmp/clib
+pushd /tmp/clib
+make
+sudo make install
+popd
+
+echo_info "Installing vimfiles"
 ensure_clone https://github.com/ErnWong/vimfiles-wsl ~/.vim
+
+echo_info "Installing tmux plugin manager"
 ensure_clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+echo_info "Installing dircolors-solarized"
 ensure_clone https://github.com/seebi/dircolors-solarized ~/customisations-shell/dircolors-solarized
 
 echo_info "Linking ~/.dircolors"
