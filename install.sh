@@ -52,17 +52,33 @@ install_pkg python-software-properties
 install_pkg software-properties-common
 install_pkg git
 install_pkg build-essential
-install_pkg libcurl4-gnutls-dev
+install_pkg cmake
+install_pkg execstack
 install_pkg libav-tools
+install_pkg libavcodec-dev
+install_pkg libavformat-dev
+install_pkg libcurl4-gnutls-dev
+install_pkg libdc1394-22-dev
+install_pkg libgtk2.0-dev
+install_pkg libjasper-dev
+install_pkg libjpeg-dev
 install_pkg libncurses-dev
-install_pkg libssl-dev
+install_pkg libpng-dev
 install_pkg libreadline-dev
+install_pkg libssl-dev
+install_pkg libswscale-dev
+install_pkg libtbb2
+install_pkg libtbb-dev
+install_pkg libtiff-dev
+install_pkg pkg-config
 install_pkg zlib1g-dev
 install_pkg htop
 install_pkg cowsay
 install_pkg octave
 install_pkg ranger
 install_pkg python-pygments
+install_pkg python-dev
+install_pkg python-numpy
 install_pkg highlight
 install_pkg poppler-utils
 install_pkg caca-utils
@@ -149,3 +165,20 @@ ln -nsf ~/customisations-shell/dircolors-solarized/dircolors.ansi-dark ~/.dircol
 echo_info "Installing sexy-bash-prompt"
 
 (cd /tmp && git clone --depth 1 --config core.autocrlf=false https://github.com/twolfson/sexy-bash-prompt && cd sexy-bash-prompt && make install) && source ~/.bashrc
+
+if hash opencv_version 2>/dev/null
+then
+  echo_info "Skipping OpenCV"
+else
+  echo_info "Installing OpenCV"
+  ensure_mkdir ~/tool-sources
+  ensure_clone https://github.com/opencv/opencv.git ~/tool-sources/opencv
+  ensure_mkdir ~/tool-sources/opencv/release
+  pushd ~/tool-sources/opencv/release
+  cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..
+  make
+  sudo make install
+  echo_info "Configuring OpenCV - Clearing execstack flags"
+  sudo execstack -c /usr/local/lib/*opencv*.so*
+  popd
+fi
