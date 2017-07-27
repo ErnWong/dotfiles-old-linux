@@ -83,6 +83,7 @@ install_pkg highlight
 install_pkg poppler-utils
 install_pkg caca-utils
 install_pkg w3m
+install_pkg gifsicle
 
 
 
