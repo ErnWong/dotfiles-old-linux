@@ -84,6 +84,7 @@ install_pkg poppler-utils
 install_pkg caca-utils
 install_pkg w3m
 install_pkg gifsicle
+install_pkg imagemagick
 
 
 
@@ -112,6 +113,9 @@ then
 fi
 install_pkg nodejs
 
+echo_info "Installing sass-lint"
+sudo npm install -g sass-lint
+
 echo_info "Installing rbenv"
 ensure_clone https://github.com/rbenv/rbenv.git ~/.rbenv
 ensure_clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
@@ -124,11 +128,23 @@ else
 fi
 rbenv global 2.4.0
 
-echo_info "Installing Bundler"
-gem install bundler
+echo_info "Checking Bundler"
+if gem list -i bundler
+then
+  echo_info "Skipping Bundler"
+else
+  echo_info "Installing Bundler"
+  gem install bundler
+fi
 
-echo_info "Installing Jekyll"
-gem install jekyll
+echo_info "Checking Jekyll"
+if gem list -i bundler
+then
+  echo_info "Skipping Jekyll"
+else
+  echo_info "Installing Jekyll"
+  gem install jekyll
+fi
 
 echo_info "Installing Clib"
 ensure_clone https://github.com/clibs/clib.git /tmp/clib
