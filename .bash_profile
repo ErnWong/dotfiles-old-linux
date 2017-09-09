@@ -11,8 +11,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-
-# ruby rbenv installation stuff:
-# http://stackoverflow.com/questions/26595620/how-to-install-ruby-2-1-4-on-ubuntu-14-04
+# rbenv - setup completions, paths, etc.
+# note: makes bash startup slow on login shells
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

@@ -1,16 +1,5 @@
 #!/usr/bin/env bash
 
-#export BASH_IT="/home/ernwong/.bash_it"
-#export BASH_IT_THEME='demula'
-#export GIT_HOSTING='github.com/ErnWong/'
-#unset MailCheck
-##export IRC_CLIENT=
-#export TODO="t"
-#export SCM_CHECK=false
-#export SHORT_TERM_LINE=true
-#
-#source "$BASH_IT"/bash_it.sh
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -126,10 +115,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
-####
-# The previous stuff was preinstalled
-# Now this is my (ErnWong's) stuff
-
+# Set default editor to vim
 export EDITOR=vim
-# Run twolfson/sexy-bash-prompt
-#. ~/.bash_prompt
