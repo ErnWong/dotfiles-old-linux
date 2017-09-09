@@ -179,6 +179,13 @@ echo_info "Linking ~/.dircolors"
 
 ln -nsf ~/customisations-shell/dircolors-solarized/dircolors.ansi-dark ~/.dircolors
 
+echo_info "Linking bash dotfiles"
+
+ln -nsf ~/.dotfiles/.bashrc ~/.bashrc
+ln -nsf ~/.dotfiles/.bash_profile ~/.bash_profile
+ln -nsf ~/.dotfiles/.bash_logout ~/.bash_logout
+ln -nsf ~/.dotfiles/.bash_aliases ~/.bash_aliases
+
 # echo_info "Installing sexy-bash-prompt"
 # (cd /tmp && git clone --depth 1 --config core.autocrlf=false https://github.com/twolfson/sexy-bash-prompt && cd sexy-bash-prompt && make install) && source ~/.bashrc
 
