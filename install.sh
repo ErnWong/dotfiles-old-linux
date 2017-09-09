@@ -45,7 +45,7 @@ ensure_mkdir() {
 
 echo_note "Might be a good idea to \e[36msudo apt-get update\e[0m first"
 
-echo_info "Instaling pakages..."
+echo_info "Instaling packages..."
 
 
 install_pkg python-software-properties
