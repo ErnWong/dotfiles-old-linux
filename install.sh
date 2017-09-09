@@ -135,7 +135,7 @@ fi
 rbenv global 2.4.0
 
 echo_info "Checking Bundler"
-if gem list -i bundler
+if gem list -i "^bundler$" >/dev/null
 then
   echo_info "Skipping Bundler"
 else
@@ -144,7 +144,7 @@ else
 fi
 
 echo_info "Checking Jekyll"
-if gem list -i bundler
+if gem list -i "^bundler$" >/dev/null
 then
   echo_info "Skipping Jekyll"
 else
