@@ -179,9 +179,17 @@ echo_info "Linking ~/.dircolors"
 
 ln -nsf ~/customisations-shell/dircolors-solarized/dircolors.ansi-dark ~/.dircolors
 
-echo_info "Installing sexy-bash-prompt"
+# echo_info "Installing sexy-bash-prompt"
+# (cd /tmp && git clone --depth 1 --config core.autocrlf=false https://github.com/twolfson/sexy-bash-prompt && cd sexy-bash-prompt && make install) && source ~/.bashrc
 
-(cd /tmp && git clone --depth 1 --config core.autocrlf=false https://github.com/twolfson/sexy-bash-prompt && cd sexy-bash-prompt && make install) && source ~/.bashrc
+# echo_info "Checking bash-it"
+# if [ -d ~/.bash_it ]; then
+#   echo_info "Skipping bash-it"
+# else
+#   echo_info "Installing bash-it"
+#   git clone https://github.com/Bash-it/bash-it.git ~/.bash_it --depth=1
+#   ~/.bash_it/install.sh --no-modify-config
+# fi
 
 if hash opencv_version 2>/dev/null
 then
