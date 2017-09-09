@@ -101,7 +101,7 @@ install_pkg imagemagick
 #   echo_info "tmux is already at version 2.0 ... skipping tmux"
 # fi
 add_ppa pi-rho pi-rho/dev
-install_pkg tmux=2.0.1~ppa1~t
+install_pkg tmux=2.0-1~ppa1~t
 
 add_ppa octave octave/stable
 install_pkg octave
