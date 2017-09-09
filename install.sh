@@ -113,8 +113,14 @@ then
 fi
 install_pkg nodejs
 
-echo_info "Installing sass-lint"
-sudo npm install -g sass-lint
+echo_info "Checking sass-lint"
+if hash sass-lint 2>/dev/null
+then
+  echo_info "Skipping sass-lint"
+else
+  echo_info "Installing sass-lint"
+  sudo npm install -g sass-lint
+fi
 
 echo_info "Installing rbenv"
 ensure_clone https://github.com/rbenv/rbenv.git ~/.rbenv
