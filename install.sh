@@ -127,6 +127,8 @@ ensure_clone https://github.com/rbenv/rbenv.git ~/.rbenv
 ensure_clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 if hash rbenv 2>/dev/null
 then
+  echo_info "Skipping rbenv setting up"
+else
   echo_info "Setting up rbenv"
   pushd ~/.rbenv
   src/configure
@@ -134,8 +136,6 @@ then
   popd
   echo_info "Temporarily add to PATH for this session"
   export PATH="$HOME/.rbenv/bin:$PATH"
-else
-  echo_info "Skipping rbenv setting up"
 fi
 if [ ! -d ~/.rbenv/versions/2.4.0 ]
 then
