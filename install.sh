@@ -157,7 +157,7 @@ else
 fi
 
 echo_info "Checking Jekyll"
-if gem list -i "^bundler$" >/dev/null
+if gem list -i "^jekyll$" >/dev/null
 then
   echo_info "Skipping Jekyll"
 else
