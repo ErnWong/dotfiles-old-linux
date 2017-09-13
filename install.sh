@@ -85,6 +85,7 @@ install_pkg caca-utils
 install_pkg w3m
 install_pkg gifsicle
 install_pkg imagemagick
+install_pkg colortest
 
 
 
