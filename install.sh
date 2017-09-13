@@ -219,3 +219,7 @@ else
   sudo execstack -c /usr/local/lib/*opencv*.so*
   popd
 fi
+
+echo_info "If all went well,...well, it's a good thing we made it to"
+echo_info "the end for starters. However, if all went well, welcome"
+echo_info "back home! Dotfiles installation complete."
