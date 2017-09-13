@@ -136,6 +136,7 @@ else
   popd
   echo_info "Temporarily add to PATH for this session"
   export PATH="$HOME/.rbenv/bin:$PATH"
+  export PATH="$HOME/.rbenv/shims:$PATH"
 fi
 if [ ! -d ~/.rbenv/versions/2.4.0 ]
 then
