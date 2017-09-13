@@ -117,3 +117,8 @@ fi
 
 # Set default editor to vim
 export EDITOR=vim
+
+# rbenv - setup completions, paths, etc.
+# note: makes bash startup slow on login shells
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
