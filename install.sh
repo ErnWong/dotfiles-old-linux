@@ -203,6 +203,12 @@ ensure_clone https://github.com/seebi/dircolors-solarized ~/customisations-shell
 echo_info "Linking ~/.dircolors"
 ln -nsf ~/customisations-shell/dircolors-solarized/dircolors.ansi-dark ~/.dircolors
 
+echo_info "Installing bashmarks"
+ensure_clone https://github.com/huyng/bashmarks.git ~/customisations-shell/bashmarks
+pushd ~/customisations-shell/bashmarks
+sudo make install
+popd
+
 echo_info "Linking bash dotfiles"
 ln -nsf ~/.dotfiles/.bashrc ~/.bashrc
 ln -nsf ~/.dotfiles/.bash_profile ~/.bash_profile
