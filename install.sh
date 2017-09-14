@@ -205,9 +205,15 @@ ln -nsf ~/customisations-shell/dircolors-solarized/dircolors.ansi-dark ~/.dircol
 
 echo_info "Installing bashmarks"
 ensure_clone https://github.com/huyng/bashmarks.git ~/customisations-shell/bashmarks
-pushd ~/customisations-shell/bashmarks
-sudo make install
-popd
+if [ -e ~/.local/bin/bashmarks.sh ]
+then
+  echo_info "Skipping bashmarks config"
+else
+  echo_info "Configuring bashmarks"
+  pushd ~/customisations-shell/bashmarks
+  sudo make install
+  popd
+fi
 
 echo_info "Linking bash dotfiles"
 ln -nsf ~/.dotfiles/.bashrc ~/.bashrc
