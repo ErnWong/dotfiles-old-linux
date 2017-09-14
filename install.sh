@@ -215,6 +215,9 @@ ln -nsf ~/.dotfiles/.bash_profile ~/.bash_profile
 ln -nsf ~/.dotfiles/.bash_logout ~/.bash_logout
 ln -nsf ~/.dotfiles/.bash_aliases ~/.bash_aliases
 
+echo_info "Linking other dotfiles"
+ln -nsf ~/.dotfiles/.inputrc ~/.inputrc
+
 if hash opencv_version 2>/dev/null
 then
   echo_info "Skipping OpenCV"

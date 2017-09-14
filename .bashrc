@@ -117,6 +117,7 @@ fi
 
 # Set default editor to vim
 export EDITOR=vim
+export VISUAL=vim
 
 # rbenv - setup completions, paths, etc.
 # note: makes bash startup slow on login shells
