@@ -203,6 +203,9 @@ ensure_clone https://github.com/seebi/dircolors-solarized ~/customisations-shell
 echo_info "Linking ~/.dircolors"
 ln -nsf ~/customisations-shell/dircolors-solarized/dircolors.ansi-dark ~/.dircolors
 
+echo_info "Installing base16-shell"
+ensure_clone https://github.com/chriskempson/base16-shell ~/.config//base16-shell
+
 echo_info "Installing bashmarks"
 ensure_clone https://github.com/huyng/bashmarks.git ~/customisations-shell/bashmarks
 if [ -e ~/.local/bin/bashmarks.sh ]
