@@ -178,6 +178,10 @@ make
 sudo make install
 popd
 
+echo_info "Adding ppa:jonathonf/vim"
+add_ppa jonathonf jonathonf/vim
+install_pkg vim
+
 echo_info "Installing vimfiles"
 ensure_clone https://github.com/ErnWong/vimfiles-wsl ~/.vim
 
