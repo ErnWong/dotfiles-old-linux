@@ -1,4 +1,5 @@
 alias tmux="TERM=xterm-256color tmux"
+
 alias gg='git status'
 alias gp='git push'
 alias gl='git pull'
@@ -17,3 +18,8 @@ alias gcobt='git checkout -b -t'
 alias gcotb='git checkout -b -t'
 alias glog='git log'
 alias glogg='git log --decorate --oneline --graph'
+
+if uname -r | grep -q 'Microsoft'
+then
+  alias vsdevcmd='cmd.exe /k "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat"'
+fi
