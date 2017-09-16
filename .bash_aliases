@@ -1,4 +1,4 @@
-alias tmux="TERM=xterm-256color tmux"
+alias tmux="tmux-next"
 
 alias gg='git status'
 alias gp='git push'
