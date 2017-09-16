@@ -130,3 +130,23 @@ source ~/.local/bin/bashmarks.sh
 # Load base16 colors
 BASE16_SHELL=$HOME/.config/base16-shell
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
+# Finally, run ssh-agent
+# (from github help articles)
+env=~/.ssh/agent.env
+agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+agent_start () {
+  (umask 077; ssh-agent >| "$env")
+  . "$env" >| /dev/null ;
+}
+agent_load_env
+# state: 0 = running with key, 1 = without key, 2 = not running
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+  agent_start
+  ssh-add
+elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+  ssh-add
+fi
+unset env
