@@ -102,11 +102,9 @@ install_pkg colortest
 #   echo_info "tmux is already at version 2.0 ... skipping tmux"
 # fi
 
-# No longer needed for Ubuntu xenial:
-# echo_info "Adding ppa:pi-rho/dev"
-# add_ppa pi-rho pi-rho/dev
-# install_pkg tmux=2.0-1~ppa1~t
-install_pkg tmux
+echo_info "Adding ppa:pi-rho/dev"
+add_ppa pi-rho pi-rho/dev
+install_pkg tmux-next
 
 echo_info "Adding ppa:octave/stable"
 add_ppa octave octave/stable
