@@ -26,7 +26,11 @@ alias glogg='git log --decorate --oneline --graph'
 
 if uname -r | grep -q 'Microsoft'
 then
-  alias vsdevcmd='cmd.exe /k "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat"'
+  vsdevcmd()
+  {
+    local CURRENT_DIR_WINDOWS=$(pwd | sed -e 's/\/mnt\/\([abcdef]\)/\U\1:/')
+    cmd.exe /k "\"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat\" && cd /d \"$CURRENT_DIR_WINDOWS\""
+  }
   vsdev()
   {
     local CURRENT_DIR_WINDOWS=$(pwd | sed -e 's/\/mnt\/\([abcdef]\)/\U\1:/')
