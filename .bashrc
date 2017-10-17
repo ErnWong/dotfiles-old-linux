@@ -124,6 +124,11 @@ export VISUAL=vim
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# Set autocompletion menu settings:
+bind "TAB:menu-complete"
+bind "set show-all-if-ambiguous on"
+bind "set menu-complete-display-prefix on"
+
 # Load bashmarks
 source ~/.local/bin/bashmarks.sh
 
