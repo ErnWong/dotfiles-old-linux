@@ -138,6 +138,15 @@ else
   sudo npm install -g sass-lint
 fi
 
+echo_info "Checking sassdoc"
+if hash sassdoc 2>/dev/null
+then
+  echo_info "Skipping sassdoc"
+else
+  echo_info "Installing sassdoc"
+  sudo npm install -g sassdoc
+fi
+
 echo_info "Installing rbenv"
 ensure_clone https://github.com/rbenv/rbenv.git ~/.rbenv
 ensure_clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
