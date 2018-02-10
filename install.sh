@@ -117,6 +117,18 @@ then
 fi
 install_pkg nodejs
 
+echo_info "Checking npm module n"
+if hash n 2>/dev/null
+then
+  echo_info "Skipping n"
+else
+  echo_info "Installing n"
+  sudo npm install -g n
+fi
+
+echo_info "Activating latest stable version of nodejs"
+sudo n stable
+
 echo_info "Checking sass-lint"
 if hash sass-lint 2>/dev/null
 then
