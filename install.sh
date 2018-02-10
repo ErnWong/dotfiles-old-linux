@@ -86,6 +86,7 @@ install_pkg w3m
 install_pkg gifsicle
 install_pkg imagemagick
 install_pkg colortest
+install_pkg gnupg2
 
 
 
@@ -246,6 +247,13 @@ ln -nsf ~/.dotfiles/.bashrc ~/.bashrc
 ln -nsf ~/.dotfiles/.bash_profile ~/.bash_profile
 ln -nsf ~/.dotfiles/.bash_logout ~/.bash_logout
 ln -nsf ~/.dotfiles/.bash_aliases ~/.bash_aliases
+
+echo_info "Linking gnupg config"
+ln -nsf ~/.dotfiles/gpg.conf ~/.gnupg/gpg.conf
+ln -nsf ~/.dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+
+echo_info "Reloading gnupg agent"
+echo RELOADAGENT | gpg-connect-agent
 
 echo_info "Linking other dotfiles"
 ln -nsf ~/.dotfiles/.inputrc ~/.inputrc
