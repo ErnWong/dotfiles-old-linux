@@ -275,6 +275,10 @@ else
   popd
 fi
 
+echo_info "Adding ppa:openjdk-r/ppa"
+add_ppa openjdk-r openjdk-r/ppa
+install_pkg openjdk-9-jdk
+
 echo_info "If all went well,...well, it's a good thing we made it to"
 echo_info "the end for starters. However, if all went well, welcome"
 echo_info "back home! Dotfiles installation complete."
