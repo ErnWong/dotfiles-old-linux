@@ -199,6 +199,18 @@ make
 sudo make install
 popd
 
+echo_info "Checking heroku"
+if hash heroku 2>/dev/null
+then
+  echo_info "Skipping heroku"
+else
+  echo_info "Installing heroku"
+  sudo add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./"
+  curl -L https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
+  sudo apt-get update
+  sudo apt-get install heroku
+fi
+
 echo_info "Adding ppa:jonathonf/vim"
 add_ppa jonathonf jonathonf/vim
 install_pkg vim
