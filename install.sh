@@ -87,6 +87,7 @@ install_pkg gifsicle
 install_pkg imagemagick
 install_pkg colortest
 install_pkg gnupg2
+install_pkg python3-pip
 
 
 
