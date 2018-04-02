@@ -45,6 +45,17 @@ ensure_mkdir() {
 
 echo_note "Might be a good idea to \e[36msudo apt-get update\e[0m first"
 
+if hash sudo 2>/dev/null;
+then
+  echo_info "Good, sudo exists"
+else
+  echo_info "Providing a fake sudo shim for the install script"
+  sudo() {
+    echo "[fake sudo]"
+    eval "$@"
+  }
+fi
+
 echo_info "Instaling packages..."
 
 
