@@ -1,5 +1,15 @@
 #!/bin/bash
 
+while test $# -gt 0
+do
+  case "$1" in
+    --with-opencv)
+      SHOULD_INSTALL_OPENCV=true
+      ;;
+  esac
+  shift
+done
+
 echo_info() {
   echo -e "[\e[34mInfo\e[0m] $1"
 }
@@ -282,21 +292,26 @@ echo RELOADAGENT | gpg-connect-agent
 echo_info "Linking other dotfiles"
 ln -nsf ~/.dotfiles/.inputrc ~/.inputrc
 
-if hash opencv_version 2>/dev/null
+if [ "$SHOULD_INSTALL_OPENCV" ]
 then
-  echo_info "Skipping OpenCV"
+  if hash opencv_version 2>/dev/null
+  then
+    echo_info "Skipping OpenCV"
+  else
+    echo_info "Installing OpenCV"
+    ensure_mkdir ~/tool-sources
+    ensure_clone https://github.com/opencv/opencv.git ~/tool-sources/opencv
+    ensure_mkdir ~/tool-sources/opencv/release
+    pushd ~/tool-sources/opencv/release
+    cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..
+    make
+    sudo make install
+    echo_info "Configuring OpenCV - Clearing execstack flags"
+    sudo execstack -c /usr/local/lib/*opencv*.so*
+    popd
+  fi
 else
-  echo_info "Installing OpenCV"
-  ensure_mkdir ~/tool-sources
-  ensure_clone https://github.com/opencv/opencv.git ~/tool-sources/opencv
-  ensure_mkdir ~/tool-sources/opencv/release
-  pushd ~/tool-sources/opencv/release
-  cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..
-  make
-  sudo make install
-  echo_info "Configuring OpenCV - Clearing execstack flags"
-  sudo execstack -c /usr/local/lib/*opencv*.so*
-  popd
+  echo_info "Skipping OpenCV"
 fi
 
 echo_info "Adding ppa:openjdk-r/ppa"
