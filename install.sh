@@ -6,6 +6,9 @@ do
     --with-opencv)
       SHOULD_INSTALL_OPENCV=true
       ;;
+    --with-emsdk)
+      SHOULD_INSTALL_EMSDK=true
+      ;;
   esac
   shift
 done
@@ -317,6 +320,20 @@ fi
 echo_info "Adding ppa:openjdk-r/ppa"
 add_ppa openjdk-r openjdk-r/ppa
 install_pkg openjdk-9-jdk
+
+if [ "$SHOULD_INSTALL_EMSDK" ]
+then
+  echo_info "Installing emsdk"
+  ensure_clone https://github.com/juj/emsdk.git ~/tool-sources/emsdk
+  pushd ~/tool-sources/emsdk
+  ./emsdk update-tags
+  ./emsdk install latest
+  ./emsdk activate latest
+  source ./emsdk_env.sh
+  popd
+else
+  echo_info "Skipping emsdk"
+fi
 
 echo_info "If all went well,...well, it's a good thing we made it to"
 echo_info "the end for starters. However, if all went well, welcome"
