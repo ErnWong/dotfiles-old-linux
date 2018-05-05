@@ -75,6 +75,7 @@ fi
 echo_info "Instaling packages..."
 
 
+install_pkg curl
 install_pkg python-software-properties
 install_pkg software-properties-common
 install_pkg git
