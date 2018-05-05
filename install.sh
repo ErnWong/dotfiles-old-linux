@@ -9,6 +9,9 @@ do
     --with-emsdk)
       SHOULD_INSTALL_EMSDK=true
       ;;
+    --with-tex)
+      SHOULD_INSTALL_TEX=true
+      ;;
   esac
   shift
 done
@@ -112,6 +115,16 @@ install_pkg imagemagick
 install_pkg colortest
 install_pkg gnupg2
 install_pkg python3-pip
+install_pkg pandoc
+
+if [ "$SHOULD_INSTALL_EMSDK" ]
+then
+  echo_info "Installing TeX related packages"
+  install_pkg texlive-latex-base
+  install_pkg texlive-xetex
+else
+  echo_info "Skipping TeX"
+fi
 
 
 
