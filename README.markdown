@@ -10,6 +10,8 @@ Simply run `./install.sh` on your trusty shell, and it would theoretically insta
 
 **Note:** it is a good idea to read through the source of *any* script you find on the internet before running them.
 
+**Note:** don't run the script with sudo outside. I.e. you should run `./install.sh` instead of `sudo ./install.sh`. Otherwise, some files will be created with root permissions and you'll stumble into some silly "Permission denied" errors later on.
+
 If a package had already been installed, re-running `.install.sh` should be fine.
 
 ## Purpose of This Repo

@@ -349,6 +349,29 @@ else
   echo_info "Skipping emsdk"
 fi
 
+echo_info "Checking Rustup"
+if hash rustup 2>/dev/null
+then
+  echo_info "Updating Rust"
+  rustup update
+else
+  echo_info "Installing Rustup and Rust"
+  curl https://sh.rustup.rs -sSf | sh
+  source ~/.cargo/env
+fi
+
+echo_info "Installing Rust Nightly with wasm target and tools"
+rustup toolchain install nightly
+rustup target add wasm32-unknown-unknown --toolchain nightly
+if hash wasm-gc 2>/dev/null
+then
+  echo "Skipping wasm-gc"
+else
+  echo "Installing wasm-gc"
+  cargo install --git https://github.com/alexcrichton/wasm-gc
+  source ~/.cargo/env
+fi
+
 echo_info "If all went well,...well, it's a good thing we made it to"
 echo_info "the end for starters. However, if all went well, welcome"
 echo_info "back home! Dotfiles installation complete."
