@@ -117,6 +117,7 @@ install_pkg colortest
 install_pkg gnupg2
 install_pkg python3-pip
 install_pkg pandoc
+install_pkg nasm
 
 if [ "$SHOULD_INSTALL_EMSDK" ]
 then
