@@ -118,6 +118,7 @@ install_pkg gnupg2
 install_pkg python3-pip
 install_pkg pandoc
 install_pkg nasm
+install_pkg gdb
 
 if [ "$SHOULD_INSTALL_EMSDK" ]
 then
