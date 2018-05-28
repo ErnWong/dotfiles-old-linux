@@ -124,6 +124,7 @@ install_pkg python3-pip
 install_pkg pandoc
 install_pkg nasm
 install_pkg gdb
+install_pkg kpartx
 
 if [ "$SHOULD_INSTALL_EMSDK" ]
 then
