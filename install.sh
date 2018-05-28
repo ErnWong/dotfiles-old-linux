@@ -12,6 +12,9 @@ do
     --with-tex)
       SHOULD_INSTALL_TEX=true
       ;;
+    --with-docker)
+      SHOULD_INSTALL_DOCKER=true
+      ;;
   esac
   shift
 done
@@ -75,6 +78,8 @@ fi
 echo_info "Instaling packages..."
 
 
+install_pkg apt-transport-https
+install_pkg ca-certificates
 install_pkg curl
 install_pkg python-software-properties
 install_pkg software-properties-common
@@ -369,6 +374,27 @@ else
   echo "Installing wasm-gc"
   cargo install --git https://github.com/alexcrichton/wasm-gc
   source ~/.cargo/env
+fi
+
+if [ "$SHOULD_INSTALL_DOCKER" ]
+then
+  echo_info "Installing docker"
+  export DOCKER_CHANNEL=edge
+  export DOCKER_COMPOSE_VERSION=1.21.0
+
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  sudo apt-key fingerprint 0EBFCD88
+  sudo add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    ${DOCKER_CHANNEL}"
+  sudo apt-get update
+  install_pkg docker-ce
+  # Allow user to access Docker CLI without needing root
+  sudo usermod -aG docker $USER
+  sudo curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
+else
+  echo_info "Skipping docker"
 fi
 
 echo_info "If all went well,...well, it's a good thing we made it to"
