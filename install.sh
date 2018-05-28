@@ -153,9 +153,10 @@ echo_info "Adding ppa:pi-rho/dev"
 add_ppa pi-rho pi-rho/dev
 install_pkg tmux-next
 
-echo_info "Adding ppa:octave/stable"
-add_ppa octave octave/stable
-install_pkg octave
+# Uncomment when available for bionic
+#echo_info "Adding ppa:octave/stable"
+#add_ppa octave octave/stable
+#install_pkg octave
 
 echo_info "Installing nodejs and npm"
 if ! grep -q nodesource /etc/apt/sources.list /etc/apt/sources.list.d/*
