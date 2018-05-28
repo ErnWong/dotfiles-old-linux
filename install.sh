@@ -159,9 +159,9 @@ install_pkg tmux-next
 #install_pkg octave
 
 echo_info "Installing nodejs and npm"
-if ! grep -q nodesource /etc/apt/sources.list /etc/apt/sources.list.d/*
+if ! grep -q nodesource.com/node_10 /etc/apt/sources.list /etc/apt/sources.list.d/*
 then
-  curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+  curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 fi
 install_pkg nodejs
 
