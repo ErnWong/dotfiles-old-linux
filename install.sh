@@ -125,6 +125,7 @@ install_pkg pandoc
 install_pkg nasm
 install_pkg gdb
 install_pkg kpartx
+install_pkg python-pip
 
 if [ "$SHOULD_INSTALL_EMSDK" ]
 then
@@ -398,6 +399,9 @@ then
 else
   echo_info "Skipping docker"
 fi
+
+echo_info "Installing RangedHTTPServer"
+pip install RangedHTTPServer
 
 echo_info "If all went well,...well, it's a good thing we made it to"
 echo_info "the end for starters. However, if all went well, welcome"
