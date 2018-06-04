@@ -126,6 +126,7 @@ install_pkg nasm
 install_pkg gdb
 install_pkg kpartx
 install_pkg python-pip
+install_pkg gcc-multilib g++-multilib
 
 if [ "$SHOULD_INSTALL_EMSDK" ]
 then
