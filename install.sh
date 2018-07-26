@@ -379,6 +379,7 @@ else
   cargo install --git https://github.com/alexcrichton/wasm-gc
   source ~/.cargo/env
 fi
+rustup component add rls-preview rust-analysis rust-src
 
 if [ "$SHOULD_INSTALL_DOCKER" ]
 then
