@@ -405,6 +405,9 @@ fi
 echo_info "Installing RangeHTTPServer"
 pip install RangeHTTPServer
 
+echo_info "Installing Neovim Python Client (for some vim plugins)"
+pip3 install neovim
+
 echo_info "If all went well,...well, it's a good thing we made it to"
 echo_info "the end for starters. However, if all went well, welcome"
 echo_info "back home! Dotfiles installation complete."
