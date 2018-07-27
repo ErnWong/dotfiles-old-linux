@@ -289,6 +289,12 @@ ensure_clone https://github.com/seebi/dircolors-solarized ~/customisations-shell
 echo_info "Linking ~/.dircolors"
 ln -nsf ~/customisations-shell/dircolors-solarized/dircolors.ansi-dark ~/.dircolors
 
+echo_info "Installing gnome-terminal-colors for gruvbox palette"
+ensure_clone https://github.com/metalelf0/gnome-terminal-colors ~/customisations-shell/gnome-terminal-colors
+pushd ~/customisations-shell/gnome-terminal-colors
+  ./install.sh --scheme=gruvbox-dark --skip-dircolors
+popd
+
 echo_info "Installing bashmarks"
 ensure_clone https://github.com/huyng/bashmarks.git ~/customisations-shell/bashmarks
 if [ -e ~/.local/bin/bashmarks.sh ]
