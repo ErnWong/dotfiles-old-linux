@@ -1,5 +1,3 @@
-alias tmux="tmux-next"
-
 alias gg='git status'
 alias gp='git push'
 alias gl='git pull'

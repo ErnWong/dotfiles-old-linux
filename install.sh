@@ -156,6 +156,9 @@ echo_info "Adding ppa:pi-rho/dev"
 add_ppa pi-rho pi-rho/dev
 install_pkg tmux-next
 
+echo_info "Linking tmux --> tmux-next"
+sudo ln -nsf /usr/bin/tmux-next /usr/bin/tmux
+
 # Uncomment when available for bionic
 #echo_info "Adding ppa:octave/stable"
 #add_ppa octave octave/stable
