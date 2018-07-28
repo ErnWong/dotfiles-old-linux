@@ -286,6 +286,9 @@ echo_info "Installing tpm plugins"
 echo_info "Updating tpm plugins"
 ~/.tmux/plugins/tpm/bin/update_plugins all
 
+echo_info "Adding tmux entry (with italics support) to TERMINFO"
+tic -x ~/.dotfiles/tmux.terminfo
+
 echo_info "Installing dircolors-solarized"
 ensure_clone https://github.com/seebi/dircolors-solarized ~/customisations-shell/dircolors-solarized
 
