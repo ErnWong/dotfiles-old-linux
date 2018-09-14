@@ -356,6 +356,10 @@ echo_info "Adding ppa:openjdk-r/ppa"
 add_ppa openjdk-r openjdk-r/ppa
 install_pkg openjdk-9-jdk
 
+echo_info "Adding Oracle Java"
+add_ppa webupd8team webupd8team/java
+install_pkg oracle-java8-installer
+
 if [ "$SHOULD_INSTALL_EMSDK" ]
 then
   echo_info "Installing emsdk"
