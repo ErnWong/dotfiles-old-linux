@@ -127,6 +127,7 @@ install_pkg gdb
 install_pkg kpartx
 install_pkg python-pip
 install_pkg gcc-multilib g++-multilib
+install_pkg xclip
 
 if [ "$SHOULD_INSTALL_EMSDK" ]
 then
