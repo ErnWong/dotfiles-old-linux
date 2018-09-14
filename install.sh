@@ -393,6 +393,7 @@ else
   source ~/.cargo/env
 fi
 rustup component add rls-preview rust-analysis rust-src
+rustup completions bash | sudo tee /etc/bash_completion.d/rustup.bash-completion
 
 if [ "$SHOULD_INSTALL_DOCKER" ]
 then
