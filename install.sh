@@ -359,6 +359,8 @@ install_pkg openjdk-9-jdk
 echo_info "Adding Oracle Java"
 add_ppa webupd8team webupd8team/java
 install_pkg oracle-java8-installer
+add_ppa linuxuprising linuxuprising/java
+install_pkg oracle-java10-installer
 
 if [ "$SHOULD_INSTALL_EMSDK" ]
 then
