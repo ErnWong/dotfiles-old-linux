@@ -180,3 +180,5 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+export PATH="/opt/ActiveTcl-8.5/bin:$PATH"
