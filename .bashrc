@@ -161,3 +161,7 @@ export LESS="--RAW-CONTROL-CHARS"
 
 # Use colors for less, man, etc.
 [[ -f ~/.dotfiles/.LESS_TERMCAP ]] && . ~/.dotfiles/.LESS_TERMCAP
+
+# Add go to path.
+export GOPATH="$HOME/go"
+export PATH="$GOPATH:$GOPATH/bin:$PATH:/usr/local/go/bin"
