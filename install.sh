@@ -259,10 +259,7 @@ then
   echo_info "Skipping heroku"
 else
   echo_info "Installing heroku"
-  sudo add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./"
-  curl -L https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
-  sudo apt-get update
-  sudo apt-get install heroku
+  sudo snap install --classic heroku
 fi
 
 echo_info "Adding ppa:jonathonf/vim"
