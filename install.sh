@@ -130,7 +130,7 @@ install_pkg gcc-multilib g++-multilib
 install_pkg xclip
 install_pkg p7zip-full
 
-if [ "$SHOULD_INSTALL_EMSDK" ]
+if [ "$SHOULD_INSTALL_TEX" ]
 then
   echo_info "Installing TeX related packages"
   install_pkg texlive-latex-base
