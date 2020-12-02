@@ -15,6 +15,12 @@ do
     --with-docker)
       SHOULD_INSTALL_DOCKER=true
       ;;
+    --with-openjdk9)
+      SHOULD_INSTALL_OPENJDK9=true
+      ;;
+    --with-oracle-java)
+      SHOULD_INSTALL_ORACLE_JAVA=true
+      ;;
   esac
   shift
 done
@@ -350,15 +356,22 @@ else
   echo_info "Skipping OpenCV"
 fi
 
-echo_info "Adding ppa:openjdk-r/ppa"
-add_ppa openjdk-r openjdk-r/ppa
-install_pkg openjdk-9-jdk
+if [ "$SHOULD_INSTALL_OPENJDK9" ]
+then
+  echo_info "Adding ppa:openjdk-r/ppa"
+  add_ppa openjdk-r openjdk-r/ppa
+  install_pkg openjdk-9-jdk
+fi
 
-echo_info "Adding Oracle Java"
-add_ppa webupd8team webupd8team/java
-install_pkg oracle-java8-installer
-add_ppa linuxuprising linuxuprising/java
-install_pkg oracle-java10-installer
+if [ "$SHOULD_INSTALL_ORACLE_JAVA" ]
+then
+  # These probably don't work anymore, but I'll leave them here for the record.
+  echo_info "Adding Oracle Java"
+  add_ppa webupd8team webupd8team/java
+  install_pkg oracle-java8-installer
+  add_ppa linuxuprising linuxuprising/java
+  install_pkg oracle-java10-installer
+fi
 
 if [ "$SHOULD_INSTALL_EMSDK" ]
 then
