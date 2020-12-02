@@ -135,6 +135,7 @@ install_pkg python-pip
 install_pkg gcc-multilib g++-multilib
 install_pkg xclip
 install_pkg p7zip-full
+install_pkg tmux
 
 if [ "$SHOULD_INSTALL_TEX" ]
 then
@@ -144,33 +145,6 @@ then
 else
   echo_info "Skipping TeX"
 fi
-
-
-
-# Updating tmux
-# TMUX_VERSIONSTR=$(tmux -V)
-# TMUX_VERSION=${TMUX_VERSIONSTR#tmux }
-# if version_lte "$TMUX_VERSION" "1.9"
-# then
-#   echo_info "Doing fancy stuff to update tmux to 2.0"
-#   sudo add-apt-repository ppa:pi-rho/dev
-#   sudo apt-get update
-#   sudo apt-get install tmux=2.0-1~ppa1~t
-# else
-#   echo_info "tmux is already at version 2.0 ... skipping tmux"
-# fi
-
-echo_info "Adding ppa:pi-rho/dev"
-add_ppa pi-rho pi-rho/dev
-install_pkg tmux-next
-
-echo_info "Linking tmux --> tmux-next"
-sudo ln -nsf /usr/bin/tmux-next /usr/bin/tmux
-
-# Uncomment when available for bionic
-#echo_info "Adding ppa:octave/stable"
-#add_ppa octave octave/stable
-#install_pkg octave
 
 echo_info "Installing nodejs and npm"
 if ! grep -q nodesource.com/node_10 /etc/apt/sources.list /etc/apt/sources.list.d/*
