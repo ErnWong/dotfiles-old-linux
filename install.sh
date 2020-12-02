@@ -87,7 +87,6 @@ echo_info "Instaling packages..."
 install_pkg apt-transport-https
 install_pkg ca-certificates
 install_pkg curl
-install_pkg python-software-properties
 install_pkg software-properties-common
 install_pkg git
 install_pkg build-essential
@@ -131,7 +130,7 @@ install_pkg pandoc
 install_pkg nasm
 install_pkg gdb
 install_pkg kpartx
-install_pkg python-pip
+install_pkg python3-pip
 install_pkg gcc-multilib g++-multilib
 install_pkg xclip
 install_pkg p7zip-full
