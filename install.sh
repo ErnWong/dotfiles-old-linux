@@ -249,6 +249,10 @@ install_pkg vim
 echo_info "Installing vimfiles"
 ensure_clone https://github.com/ErnWong/vimfiles-wsl ~/.vim
 
+echo_info "Linking ~/.config/nvim"
+mkdir -p ~/.config
+ln -nsf ~/.dotfiles/.config/nvim ~/.config/nvim
+
 echo_info "Setting up tmux"
 
 echo_info "Linking ~/.tmux.conf"
