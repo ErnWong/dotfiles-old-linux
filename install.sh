@@ -136,6 +136,7 @@ install_pkg xclip
 install_pkg p7zip-full
 install_pkg tmux
 install_pkg neovim
+install_pkg universal-ctags
 
 if [ "$SHOULD_INSTALL_TEX" ]
 then
