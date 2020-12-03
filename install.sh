@@ -138,6 +138,7 @@ install_pkg tmux
 install_pkg neovim
 install_pkg universal-ctags
 install_pkg fzf
+install_pkg ats2-lang
 
 if [ "$SHOULD_INSTALL_TEX" ]
 then
