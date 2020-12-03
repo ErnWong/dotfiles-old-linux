@@ -182,3 +182,6 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH="/opt/ActiveTcl-8.5/bin:$PATH"
+
+source /usr/share/doc/fzf/examples/key-bindings.bash
+source /usr/share/doc/fzf/examples/completion.bash
