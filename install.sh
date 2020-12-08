@@ -245,6 +245,10 @@ else
   sudo snap install --classic heroku
 fi
 
+echo_info "Adding ppa:obsproject/obs-studio"
+add_ppa obsproject obsproject/obs-studio
+install_pkg obs-studio
+
 echo_info "Adding ppa:jonathonf/vim"
 add_ppa jonathonf jonathonf/vim
 install_pkg vim
